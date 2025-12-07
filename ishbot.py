@@ -8,7 +8,7 @@ import time
 # -------------------
 # CONFIG
 # -------------------
-TOKEN = os.environ.get("8441933465:AAFmeIGdHphCEJOrkTSjixl-nC-bdrRxKZ0")  # Render ENV variable
+TOKEN = os.environ.get("8441933465:AAFmeIGdHphCEJOrkTSjixl-nC-bdrRxKZ0")e
 ADMIN_ID = 6688570192  # Sizning Telegram ID
 ANNOUNCE_FILE = "announcements.json"
 
@@ -97,6 +97,9 @@ def greet(msg):
             temp_user_data[chat_id].update({"text": text, "id": new_id, "step":"time"})
             bot.send_message(chat_id, "📅 E'lon qancha muddat saqlansin?", reply_markup=expire_keyboard())
 
+# -------------------
+# E'lonlarni yuborish
+# -------------------
 def send_announcements(chat_id):
     remove_expired()
     pos = user_pos.get(chat_id, 0)
@@ -119,6 +122,9 @@ def send_announcements(chat_id):
     )
     bot.send_message(chat_id, text_all, reply_markup=kb)
 
+# -------------------
+# Callback query
+# -------------------
 @bot.callback_query_handler(func=lambda c: True)
 def callback(c):
     chat_id = c.message.chat.id
@@ -160,6 +166,9 @@ def callback(c):
 
     bot.answer_callback_query(c.id)
 
+# -------------------
+# E'lon o'chirish / tahrirlash / muddat
+# -------------------
 def delete_announcement(user_id, e_id):
     global announcements
     for e in announcements:
@@ -210,7 +219,6 @@ def webhook():
 # -------------------
 if __name__ == "__main__":
     bot.remove_webhook()
-    bot.set_webhook(url=f"https://YOUR_RENDER_URL/{TOKEN}")
+    bot.set_webhook(url=f"https://YOUR_RENDER_URL/{TOKEN}")  # Render’da Service URL bilan almashtiring
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
 
