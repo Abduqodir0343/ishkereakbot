@@ -11,7 +11,8 @@ import time
 TOKEN = "8441933465:AAFmeIGdHphCEJOrkTSjixl-nC-bdrRxKZ0"
 ADMIN_ID = 6688570192  # Sizning Telegram ID
 ANNOUNCE_FILE = "announcements.json"
-WEBHOOK_URL = "https://sizning-server.com/" + TOKEN  # HTTPS manzilingiz
+WEBHOOK_URL = "https://github.com/Abduqodir0343/ishkereakbot
+" + TOKEN  # HTTPS manzilingiz
 
 bot = telebot.TeleBot(TOKEN)
 app = Flask(__name__)
@@ -223,3 +224,4 @@ if __name__ == "__main__":
     bot.set_webhook(url=WEBHOOK_URL)
     print("Webhook o‘rnatildi va bot ishlayapti...")
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
